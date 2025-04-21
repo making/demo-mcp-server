@@ -9,10 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class McpConfig {
 
 	@Bean
-	public ToolCallbackProvider tools(GoogleChatWebhookService googleChatWebhookService,
-			HotelRecommendationService hotelRecommendationService, OnePieceSpoilerService onePieceSpoilerService) {
+	public ToolCallbackProvider tools(CurrentDateService currentDateService, AppleCalendarService appleCalendarService,
+			GoogleChatWebhookService googleChatWebhookService, HotelRecommendationService hotelRecommendationService,
+			OnePieceSpoilerService onePieceSpoilerService) {
 		return MethodToolCallbackProvider.builder()
-			.toolObjects(googleChatWebhookService, onePieceSpoilerService, hotelRecommendationService)
+			.toolObjects(currentDateService, appleCalendarService, googleChatWebhookService, onePieceSpoilerService,
+					hotelRecommendationService)
 			.build();
 	}
 
